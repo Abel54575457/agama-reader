@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>阿含日課 · 每日一則</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <button id="menuBtn" class="ghost" aria-label="目錄">目錄</button>
+  <div class="brand"><span class="seal">含</span><h1>阿含日課</h1></div>
+  <div class="stats">
+    <div><b id="stDays">0</b><small>已讀天數</small></div>
+    <div><b id="stStreak">0</b><small>連續天數</small></div>
+    <div><b id="stDone">0</b><small>已完成</small></div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav id="toc" class="toc"></nav>
+
+  <main>
+    <article class="page">
+      <p class="day" id="dayLabel"></p>
+      <h2 id="title"></h2>
+      <p class="source" id="source"></p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="original">原文</button>
+        <button class="tab" data-tab="explain">解釋</button>
+        <button class="tab" data-tab="vocab">字詞說明</button>
+      </div>
+
+      <section id="pane-original" class="pane active"><div id="original" class="vertical"></div></section>
+      <section id="pane-explain" class="pane"><p id="explain" class="explain"></p></section>
+      <section id="pane-vocab" class="pane"><dl id="vocab"></dl></section>
+    </article>
+
+    <section class="card">
+      <h3>小測驗　<small>字詞是否讀懂？</small></h3>
+      <div id="quiz"></div>
+      <div class="row">
+        <button id="checkBtn">交卷</button>
+        <span id="score"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>修習筆記　<small>自動儲存於此瀏覽器</small></h3>
+      <textarea id="note" rows="6" placeholder="今日有何體會？可寫下觀察、疑問、生活中的練習…"></textarea>
+      <div class="row">
+        <span id="saved" class="muted"></span>
+        <button id="exportBtn" class="ghost">匯出全部筆記</button>
+      </div>
+    </section>
+
+    <div class="row center">
+      <button id="prevBtn" class="ghost">‹ 前一則</button>
+      <button id="doneBtn">今日已讀完</button>
+      <button id="nextBtn" class="ghost">下一則 ›</button>
+    </div>
+    <p class="foot">經號依《佛陀的教示》，請以 CBETA 原典核對。</p>
+  </main>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
