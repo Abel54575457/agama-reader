@@ -47,9 +47,8 @@ button.ghost:hover{border-color:var(--red);color:var(--red);background:transpare
 .pane.active{display:block;animation:fade .4s}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
 
-.vertical{writing-mode:vertical-rl;height:320px;margin:0 auto;width:max-content;max-width:100%;
-  font-size:1.7rem;letter-spacing:.4em;line-height:2.4;overflow-x:auto}
-.vertical p{margin:0 0 0 1.2rem}
+.vertical{font-size:1.5rem;letter-spacing:.25em;line-height:2.2;padding:.4rem 0 .4rem 1.2rem;border-left:3px solid var(--red)}
+.vertical p{margin:0}
 .explain{font-size:1.1rem;text-align:justify;letter-spacing:.06em}
 #vocab{margin:0}
 #vocab dt{float:left;clear:left;width:7em;color:var(--red);font-weight:600;letter-spacing:.2em}

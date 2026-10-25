@@ -43,8 +43,11 @@ function render(){
   $("#vocab").innerHTML=L.vocab.map(v=>`<dt>${v[0]}</dt><dd>${v[1]}</dd>`).join("");
   showTab("original");
   // 測驗
-  $("#quiz").innerHTML=L.quiz.map((q,qi)=>`<div class="q" data-qi="${qi}"><p>${qi+1}. ${q.q}</p>`+
-    q.o.map((o,oi)=>`<label><input type="radio" name="q${qi}" value="${oi}"> ${o}</label>`).join("")+`</div>`).join("");
+  $("#quiz").innerHTML=L.quiz.map((q,qi)=>{
+    // 選項順序依「則別+題號」固定洗牌，避免正解總在同一位置，且重整後不變
+    const order=q.o.map((_,i)=>i).sort((a,b)=>Math.sin((a+1)*(idx+3)*(qi+7))-Math.sin((b+1)*(idx+3)*(qi+7)));
+    return `<div class="q" data-qi="${qi}"><p>${qi+1}. ${q.q}</p>`+
+    order.map(oi=>`<label><input type="radio" name="q${qi}" value="${oi}"> ${q.o[oi]}</label>`).join("")+`</div>`;}).join("");
   $("#score").textContent=S.scores[idx]!=null?`上次成績：${S.scores[idx]}／${L.quiz.length}`:"";
   // 筆記
   $("#note").value=S.notes[idx]||"";
