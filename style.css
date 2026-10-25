@@ -18,7 +18,11 @@ button.ghost:hover{border-color:var(--red);color:var(--red);background:transpare
 .brand h1{margin:0;font-weight:400;font-size:1.3rem;letter-spacing:.35em}
 .seal{display:inline-grid;place-items:center;width:2rem;height:2rem;background:var(--red);color:#f4efe4;
   font-size:1.1rem;border-radius:3px;transform:rotate(-4deg)}
-.stats{display:flex;gap:1.4rem}
+.right{display:flex;align-items:center;gap:1.2rem}
+#lang{font-family:inherit;font-size:.88rem;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);padding:.3rem .6rem;cursor:pointer;letter-spacing:.05em}
+#lang:focus{outline:none;border-color:var(--red)}
+.stats{display:flex;gap:1.3rem}
 .stats div{text-align:center;line-height:1.2}
 .stats b{display:block;font-size:1.35rem;font-weight:600;color:var(--red)}
 .stats small{color:var(--muted);font-size:.72rem;letter-spacing:.1em}
@@ -76,12 +80,14 @@ textarea:focus{outline:none;border-color:var(--red)}
 
 @media(max-width:760px){
   #menuBtn{display:block}
-  .stats{gap:.8rem}.brand h1{font-size:1rem;letter-spacing:.2em}
+  .top{flex-wrap:wrap;padding:.6rem 1rem}
+  .right{width:100%;justify-content:space-between;border-top:1px dotted var(--line);padding-top:.45rem}
+  .stats{gap:.75rem}.brand h1{font-size:1.05rem;letter-spacing:.2em}
   .layout{grid-template-columns:1fr;padding:1rem}
   .toc{display:none;position:static;max-height:none;border:1px solid var(--line);padding:.5rem;background:var(--paper2)}
   .toc.open{display:block}
   .page{padding:1.2rem}
   .page h2{font-size:1.5rem}
-  .vertical{font-size:1.35rem;height:260px}
+  .vertical{font-size:1.3rem}
   #vocab dt{float:none;width:auto}#vocab dd{margin-left:0}
 }

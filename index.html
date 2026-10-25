@@ -5,17 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>阿含日課 · 每日一則</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Serif:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top">
-  <button id="menuBtn" class="ghost" aria-label="目錄">目錄</button>
-  <div class="brand"><span class="seal">含</span><h1>阿含日課</h1></div>
-  <div class="stats">
-    <div><b id="stDays">0</b><small>已讀天數</small></div>
-    <div><b id="stStreak">0</b><small>連續天數</small></div>
-    <div><b id="stDone">0</b><small>已完成</small></div>
+  <button id="menuBtn" class="ghost" data-i18n="toc">目錄</button>
+  <div class="brand"><span class="seal">含</span><h1 data-i18n="brand">阿含日課</h1></div>
+  <div class="right">
+    <select id="lang" aria-label="Language"></select>
+    <div class="stats">
+      <div><b id="stUsers">1</b><small data-i18n="stUsers">使用人數</small></div>
+      <div><b id="stDays">0</b><small data-i18n="stDays">已讀天數</small></div>
+      <div><b id="stStreak">0</b><small data-i18n="stStreak">連續天數</small></div>
+      <div><b id="stDone">0</b><small data-i18n="stDone">已完成</small></div>
+    </div>
   </div>
 </header>
 
@@ -29,40 +33,43 @@
       <p class="source" id="source"></p>
 
       <div class="tabs" role="tablist">
-        <button class="tab active" data-tab="original">原文</button>
-        <button class="tab" data-tab="explain">解釋</button>
-        <button class="tab" data-tab="vocab">字詞說明</button>
+        <button class="tab active" data-tab="original" data-i18n="tabOriginal">原文</button>
+        <button class="tab" data-tab="explain" data-i18n="tabExplain">解釋</button>
+        <button class="tab" data-tab="vocab" data-i18n="tabVocab">字詞說明</button>
       </div>
 
-      <section id="pane-original" class="pane active"><div id="original" class="vertical"></div></section>
+      <section id="pane-original" class="pane active">
+        <div id="original" class="vertical" lang="zh-Hant"></div>
+        <p id="originalNote" class="muted"></p>
+      </section>
       <section id="pane-explain" class="pane"><p id="explain" class="explain"></p></section>
       <section id="pane-vocab" class="pane"><dl id="vocab"></dl></section>
     </article>
 
     <section class="card">
-      <h3>小測驗　<small>字詞是否讀懂？</small></h3>
+      <h3><span data-i18n="quiz">小測驗</span>　<small data-i18n="quizSub">字詞是否讀懂？</small></h3>
       <div id="quiz"></div>
       <div class="row">
-        <button id="checkBtn">交卷</button>
+        <button id="checkBtn" data-i18n="check">交卷</button>
         <span id="score"></span>
       </div>
     </section>
 
     <section class="card">
-      <h3>修習筆記　<small>自動儲存於此瀏覽器</small></h3>
-      <textarea id="note" rows="6" placeholder="今日有何體會？可寫下觀察、疑問、生活中的練習…"></textarea>
+      <h3><span data-i18n="notes">修習筆記</span>　<small data-i18n="notesSub">自動儲存於此瀏覽器</small></h3>
+      <textarea id="note" rows="6"></textarea>
       <div class="row">
         <span id="saved" class="muted"></span>
-        <button id="exportBtn" class="ghost">匯出全部筆記</button>
+        <button id="exportBtn" class="ghost" data-i18n="export">匯出全部筆記</button>
       </div>
     </section>
 
     <div class="row center">
-      <button id="prevBtn" class="ghost">‹ 前一則</button>
-      <button id="doneBtn">今日已讀完</button>
-      <button id="nextBtn" class="ghost">下一則 ›</button>
+      <button id="prevBtn" class="ghost"></button>
+      <button id="doneBtn"></button>
+      <button id="nextBtn" class="ghost"></button>
     </div>
-    <p class="foot">原文為經典常見段落之摘引，經號與字句請以 CBETA 原典核對。</p>
+    <p class="foot" id="foot"></p>
   </main>
 </div>
 <script src="data.js"></script>
@@ -71,6 +78,8 @@
 <script src="data3.js"></script>
 <script src="data4.js"></script>
 <script src="data5.js"></script>
+<script src="translations.js"></script>
+<script src="i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
