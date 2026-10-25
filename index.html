@@ -13,6 +13,7 @@
   <button id="menuBtn" class="ghost" data-i18n="toc">目錄</button>
   <div class="brand"><span class="seal">含</span><h1 data-i18n="brand">阿含日課</h1></div>
   <div class="right">
+    <button id="aboutBtn" class="ghost" data-i18n="aboutBtn">導讀說明</button>
     <select id="lang" aria-label="Language"></select>
     <div class="stats">
       <div><b id="stUsers">1</b><small data-i18n="stUsers">使用人數</small></div>
@@ -27,6 +28,14 @@
   <nav id="toc" class="toc"></nav>
 
   <main>
+    <article id="aboutPage" class="page about-page" hidden>
+      <div id="aboutBody"></div>
+      <div class="row center">
+        <button id="closeAboutBtn" data-i18n="backToLesson">返回日課閱讀</button>
+      </div>
+    </article>
+
+    <div id="lessonView">
     <article class="page">
       <p class="day" id="dayLabel"></p>
       <h2 id="title"></h2>
@@ -68,6 +77,7 @@
       <button id="prevBtn" class="ghost"></button>
       <button id="doneBtn"></button>
       <button id="nextBtn" class="ghost"></button>
+    </div>
     </div>
     <p class="foot" id="foot"></p>
   </main>

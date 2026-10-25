@@ -77,6 +77,16 @@ textarea:focus{outline:none;border-color:var(--red)}
 #score{color:var(--red);letter-spacing:.1em}
 #doneBtn.is-done{background:var(--moss);border-color:var(--moss)}
 .foot{text-align:center;color:var(--muted);font-size:.78rem;margin-top:1rem}
+#aboutBtn.active{background:var(--red);color:var(--paper);border-color:var(--red)}
+.about-page h2{font-size:1.65rem;letter-spacing:.15em;line-height:1.45;margin:.2rem 0 .3rem}
+.about-sec{margin-top:1.5rem;padding-top:1.1rem;border-top:1px solid var(--line)}
+.about-sec h3{margin:0 0 .6rem;color:var(--red);font-weight:600;font-size:1.1rem;letter-spacing:.12em}
+.about-sec p{margin:.5rem 0;text-align:justify}
+.about-list{margin:.4rem 0 0}
+.about-list dt{font-weight:600;color:var(--ink);margin-top:.75rem;padding-left:.65rem;border-left:3px solid var(--red);letter-spacing:.08em}
+.about-list dd{margin:.2rem 0 .5rem .8rem;color:var(--ink);font-size:.96rem;text-align:justify}
+.about-ul{margin:.4rem 0 0;padding-left:1.3rem}
+.about-ul li{margin:.45rem 0;text-align:justify}
 
 @media(max-width:760px){
   #menuBtn{display:block}

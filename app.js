@@ -32,10 +32,22 @@ function view(i){
   };
 }
 
+let inAbout=false;
+function toggleAbout(show){
+  inAbout=typeof show==="boolean"?show:!inAbout;
+  $("#aboutPage").hidden=!inAbout;
+  $("#lessonView").hidden=inAbout;
+  $("#aboutBtn").classList.toggle("active",inAbout);
+  $("#aboutBtn").textContent=inAbout?T().aboutActive:T().aboutBtn;
+  if(inAbout)window.scrollTo({top:0,behavior:"smooth"});
+}
+
 function applyUI(){
   document.documentElement.lang=lang==="zh"?"zh-Hant":lang;
   document.title=T().doc;
   document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=T()[e.dataset.i18n]);
+  $("#aboutBtn").textContent=inAbout?T().aboutActive:T().aboutBtn;
+  $("#aboutBody").innerHTML=T().aboutHTML;
   $("#note").placeholder=T().notePh;
   $("#foot").textContent=T().foot;
   $("#prevBtn").textContent=T().prev;$("#nextBtn").textContent=T().next;
@@ -101,8 +113,10 @@ function render(keepTab){
   $("#prevBtn").disabled=idx===0;$("#nextBtn").disabled=idx===LESSONS.length-1;
   toc();stats();
 }
-function go(i){idx=Math.max(0,Math.min(LESSONS.length-1,i));S.cur=idx;save();render();window.scrollTo({top:0,behavior:"smooth"});}
+function go(i){if(inAbout)toggleAbout(false);idx=Math.max(0,Math.min(LESSONS.length-1,i));S.cur=idx;save();render();window.scrollTo({top:0,behavior:"smooth"});}
 
+$("#aboutBtn").onclick=()=>toggleAbout();
+$("#closeAboutBtn").onclick=()=>toggleAbout(false);
 $("#lang").onchange=e=>{lang=e.target.value;S.lang=lang;save();render(true);};
 $("#prevBtn").onclick=()=>go(idx-1);
 $("#nextBtn").onclick=()=>go(idx+1);
